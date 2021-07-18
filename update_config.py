@@ -87,7 +87,7 @@ def updateRoverNumber(file_path, pattern, subst):
     #Move new file
     move(abs_path, file_path)
 
-def runPreCommands(checkoutBranch="", cwd):
+def runPreCommands(checkoutBranch="", cwd=""):
     os.system("cd "+cwd+" && make kill-all-containers")
     time.sleep(1)
     os.system("git -C "+cwd+" stash")
@@ -101,7 +101,7 @@ def runPreCommands(checkoutBranch="", cwd):
     # os.system("(cd competition-round/ && make init)")
     # os.system("(cd competition-round/ && make build-solution)")
 
-def runCommands(cwd):
+def runCommands(cwd=""):
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
     subprocess.Popen(["make", "run-sim"], cwd=cwd)
@@ -122,7 +122,7 @@ def runCommands(cwd):
     # subprocess.Popen(["gnome-terminal", "--tab-with-profile=a", "--", "make", "run-solution"], cwd="competition-round/")
     # os.system("cd competition-round/ && gnome-terminal --tab-with-profile=a -- make run-solution")
 
-def runSimOnly(cwd):
+def runSimOnly(cwd=""):
     subprocess.run(["make", "kill-all-containers"], cwd=cwd)
     time.sleep(1)
     # subprocess.Popen(["make", "run-sim"], cwd="competition-round/")

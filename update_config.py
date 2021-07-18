@@ -15,6 +15,7 @@ import argparse
 #         pass
 
 def updateSeedNum(file_path, seed_file_path, newSeed=-1):
+    print("updateSeedNum")
     seedNum = 0
     if newSeed == -1:
         seedNum = int(getCurrentSeed(seed_file_path))
@@ -45,6 +46,7 @@ def updateSeedNum(file_path, seed_file_path, newSeed=-1):
     saveCurrentSeed(seed_file_path, seedNum)
 
 def getCurrentSeed(seed_file_path):
+    print("getCurrentSeed")
     if os.path.exists(seed_file_path):
         with open(seed_file_path) as file:
             first_line = file.readline()
@@ -53,6 +55,7 @@ def getCurrentSeed(seed_file_path):
         return 1000
 
 def saveCurrentSeed(seed_file_path, seedNum):
+    print("saveCurrentSeed")
     if os.path.exists(seed_file_path):
 
         file = open(seed_file_path, 'w')
@@ -74,6 +77,7 @@ def sixRovers(file_path):
     updateRoverNumber(file_path, "  haulers: 2", "  haulers: 2")
 
 def updateRoverNumber(file_path, pattern, subst):
+    print("updateRoverNumber")
     #Create temp file
     fh, abs_path = mkstemp()
     with fdopen(fh,'w') as new_file:
@@ -88,6 +92,7 @@ def updateRoverNumber(file_path, pattern, subst):
     move(abs_path, file_path)
 
 def runPreCommands(cwd, checkoutBranch=""):
+    print("runPreCommands")
     os.system("cd "+cwd+" && make kill-all-containers")
     time.sleep(1)
     os.system("git -C "+cwd+" stash")
@@ -102,6 +107,7 @@ def runPreCommands(cwd, checkoutBranch=""):
     # os.system("(cd competition-round/ && make build-solution)")
 
 def runCommands(cwd):
+    print("runCommands")
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
     subprocess.Popen(["make", "run-sim"], cwd=cwd)

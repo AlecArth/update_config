@@ -87,7 +87,7 @@ def updateRoverNumber(file_path, pattern, subst):
     #Move new file
     move(abs_path, file_path)
 
-def runPreCommands(checkoutBranch="", cwd=""):
+def runPreCommands(cwd, checkoutBranch=""):
     os.system("cd "+cwd+" && make kill-all-containers")
     time.sleep(1)
     os.system("git -C "+cwd+" stash")
@@ -101,14 +101,14 @@ def runPreCommands(checkoutBranch="", cwd=""):
     # os.system("(cd competition-round/ && make init)")
     # os.system("(cd competition-round/ && make build-solution)")
 
-def runCommands(cwd=""):
+def runCommands(cwd):
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
     subprocess.Popen(["make", "run-sim"], cwd=cwd)
     time.sleep(65)
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
-    subprocess.Popen(["make", "run-solution"], cwd=cwd)
+    subprocess.run(["make", "run-solution"], cwd=cwd)
     # time.sleep(10)
     # time.sleep(60)
     # subprocess.run(["make", "kill-all-containers"], cwd="competition-round/")
@@ -122,11 +122,11 @@ def runCommands(cwd=""):
     # subprocess.Popen(["gnome-terminal", "--tab-with-profile=a", "--", "make", "run-solution"], cwd="competition-round/")
     # os.system("cd competition-round/ && gnome-terminal --tab-with-profile=a -- make run-solution")
 
-def runSimOnly(cwd=""):
+def runSimOnly(cwd):
     subprocess.run(["make", "kill-all-containers"], cwd=cwd)
     time.sleep(1)
-    # subprocess.Popen(["make", "run-sim"], cwd="competition-round/")
-    # time.sleep(65)
+    subprocess.Popen(["make", "run-sim"], cwd=cwd)
+    time.sleep(65)
     subprocess.run(["clear"], cwd=cwd)
     # subprocess.Popen(["gnome-terminal", "--tab-with-profile=a", "--", "make", "run-solution"], cwd="competition-round/")
     # time.sleep(3)
@@ -151,11 +151,13 @@ def main():
     seed_file_path = args.seed_file_path
     numberOfRovers = args.numberOfRovers
     makeSimOnly = args.makeSimOnly
+
+    subprocess.run(["make", "kill-all-containers"], cwd=cwd)
     
     if makeSimOnly:
-        runSimOnly()
+        runSimOnly(cwd)
     else:
-        runPreCommands(checkoutBranch, cwd)
+        runPreCommands(cwd, checkoutBranch)
 
         updateSeedNum(file_path, seed_file_path, newSeed)
 

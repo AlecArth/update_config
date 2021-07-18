@@ -108,14 +108,14 @@ def runPreCommands(cwd, checkoutBranch=""):
 
 def runCommands(cwd):
     print("runCommands")
-    subprocess.run(["make", "kill-all-containers"], cwd=cwd)
-    time.sleep(1)
+    # subprocess.run(["make", "kill-all-containers"], cwd=cwd)
+    # time.sleep(1)
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
     subprocess.Popen(["make", "run-sim"], cwd=cwd)
     time.sleep(65)
-    subprocess.run(["clear"], cwd=cwd)
-    time.sleep(1)
+    # subprocess.run(["clear"], cwd=cwd)
+    # time.sleep(1)
     subprocess.run(["make", "run-solution"], cwd=cwd)
     # time.sleep(10)
     # time.sleep(60)

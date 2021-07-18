@@ -108,6 +108,8 @@ def runPreCommands(cwd, checkoutBranch=""):
 
 def runCommands(cwd):
     print("runCommands")
+    subprocess.run(["make", "kill-all-containers"], cwd=cwd)
+    time.sleep(1)
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
     subprocess.Popen(["make", "run-sim"], cwd=cwd)
@@ -157,8 +159,6 @@ def main():
     seed_file_path = args.seed_file_path
     numberOfRovers = args.numberOfRovers
     makeSimOnly = args.makeSimOnly
-
-    subprocess.run(["make", "kill-all-containers"], cwd=cwd)
     
     if makeSimOnly:
         runSimOnly(cwd)
@@ -173,8 +173,6 @@ def main():
             sixRovers(file_path)
 
         runCommands(cwd)
-
-        runSimOnly(cwd)
 
 
 if __name__ == "__main__":

@@ -112,6 +112,8 @@ def runCommands(cwd):
     # time.sleep(1)
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
+    subprocess.run(["make", "init"], cwd=cwd)
+    time.sleep(1)
     subprocess.Popen(["make", "run-sim"], cwd=cwd)
     time.sleep(65)
     # subprocess.run(["clear"], cwd=cwd)

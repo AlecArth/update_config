@@ -23,13 +23,13 @@ python3 update_config.py --branch master --pull True --seed
     - Without video services
     roslaunch srcp2_solution submission_with_logger.launch
 
-    - With video services
-    python3 run.py --all --sm submission/6_rovers/challenge --vs
-
     - Score
     rostopic echo /srcp2/score
 
 ----------other------------
+
+- With video services
+python3 run.py --all --sm submission/6_rovers/challenge --vs
 
 python3 update_config.py --branch master --seed
 roslaunch srcp2_solution submission_with_logger.launch |& tee container_output/terminal_output_seed_1000

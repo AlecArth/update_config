@@ -93,8 +93,6 @@ def runPreCommands(cwd, pull, checkoutBranch=""):
 
 def runCommands(cwd, init, build, extra_cpus, sim_no_gui):
     print("runCommands")
-    subprocess.run(["clear"], cwd=cwd)
-    time.sleep(1)
     if init:
         subprocess.run(["make", "init"], cwd=cwd)
         time.sleep(1)

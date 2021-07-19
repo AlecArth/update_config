@@ -14,8 +14,8 @@ e.g: python3 update_config.py --branch master --pull --init --build --seed 30923
 
 ----------scripts-----------
 # enter the required seed number. Run only ONE.
-python3 update_config.py --branch master --seed 1000
-python3 update_config.py --branch master --pull True --seed 1000
+python3 update_config.py --branch master --seed
+python3 update_config.py --branch master --pull True --seed
 
 # Run these inside the "make run-solution" terminals.
     # Without video services

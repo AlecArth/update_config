@@ -22,6 +22,9 @@ python3 update_config.py --branch master --pull True --seed
     - Without video services
     roslaunch srcp2_solution submission_with_logger.launch
 
+    - With map viewer
+    python3 run.py --all --sm submission/6_rovers/challenge --services map_viewer
+
     - Score
     rostopic echo /srcp2/score
 

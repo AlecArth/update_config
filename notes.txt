@@ -7,8 +7,8 @@ checkout specific branch:         --branch <branch_to_use>
 run "make init":                  --init
 run "make build-solution":        --build
 pull the branch:                  --pull
-make run-solution-extra-cpus:     --extra-cpus
-make run-sim-no-gui               --no-sim-gui
+make run-solution-extra-cpus:     --extra_cpus
+make run-sim-no-gui               --no_sim_gui
 run the sim with 3 min delay      --first_run_on_pre_init_and_build
 
 e.g: python3 update_config.py --branch master --pull True --init True --build True --seed 30923
@@ -38,4 +38,4 @@ rostopic echo /srcp2/score |& tee container_output/score_seed_1000
 python3 run.py --all --sm submission/6_rovers/challenge --vs |& tee container_output/terminal_output_seed_1000
 
 
-python3 update_config.py --branch master --pull True --first_run_on_pre_init_and_build True --extra-cpus True --seed
+python3 update_config.py --branch master --pull True --first_run_on_pre_init_and_build True --extra_cpus True --seed

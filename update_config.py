@@ -79,7 +79,7 @@ def updateRoverNumber(file_path, pattern, subst):
 
 def runPreCommands(cwd, pull, checkoutBranch=""):
     print("runPreCommands")
-    subprocess.run(["clear"], cwd="competition-round/")
+    subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
     os.system("cd "+cwd+" && make kill-all-containers")
     time.sleep(1)

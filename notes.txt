@@ -1,0 +1,36 @@
+----------args-----------
+
+# select the required seed number.
+    -1 or nothing will increment
+    the previous seed by 1:       --seed <seed_number>
+checkout specific branch:         --branch <branch_to_use>
+run "make init":                  --init
+run "make build-solution":        --build
+pull the branch:                  --pull
+make run-solution-extra-cpus:     --extra-cpus
+make run-sim-no-gui               --no-sim-gui
+
+e.g: python3 update_config.py --branch master --pull --init --build --seed 30923
+
+----------scripts-----------
+# enter the required seed number. Run only ONE.
+python3 update_config.py --branch master --seed 1000
+python3 update_config.py --branch master --pull --seed 1000
+
+# Run these inside the "make run-solution" terminals.
+    # Without video services
+    roslaunch srcp2_solution submission_with_logger.launch
+
+    # With video services
+    python3 run.py --all --sm submission/6_rovers/challenge --vs
+
+    # Score
+    rostopic echo /srcp2/score
+
+----------other------------
+
+python3 update_config.py --branch master --seed
+roslaunch srcp2_solution submission_with_logger.launch |& tee container_output/terminal_output_seed_1000
+rostopic echo /srcp2/score |& tee container_output/score_seed_1000
+
+python3 run.py --all --sm submission/6_rovers/challenge --vs |& tee container_output/terminal_output_seed_1000

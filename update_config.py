@@ -2,25 +2,16 @@ import os
 from tempfile import mkstemp
 from shutil import move, copymode
 from os import fdopen, remove
-import sys
 import time
 import subprocess
-import threading
 import time
 import argparse
-
-
-# class UpdateSeed():
-#     def __init__():
-#         pass
 
 def updateSeedNum(file_path, seed_file_path, newSeed=-1):
     print("updateSeedNum")
     seedNum = 0
     if newSeed == -1:
         seedNum = int(getCurrentSeed(seed_file_path))
-
-    # Update seed.
     fh, abs_path = mkstemp()
     with fdopen(fh,'w') as new_file:
         with open(file_path) as old_file:
@@ -30,7 +21,6 @@ def updateSeedNum(file_path, seed_file_path, newSeed=-1):
                         seedNum = newSeed
                         updatedSeed = "seed: "+str(newSeed)+"\n"
                     else:
-                        # seedNum = int(line[6:-1])
                         seedNum += 1
                         updatedSeed = "seed: "+str(seedNum)+"\n"
                     new_file.write(line.replace(line, updatedSeed))
@@ -78,20 +68,16 @@ def sixRovers(file_path):
 
 def updateRoverNumber(file_path, pattern, subst):
     print("updateRoverNumber")
-    #Create temp file
     fh, abs_path = mkstemp()
     with fdopen(fh,'w') as new_file:
         with open(file_path) as old_file:
             for line in old_file:
                 new_file.write(line.replace(pattern, subst))
-    #Copy the file permissions from the old file to the new file
     copymode(file_path, abs_path)
-    #Remove original file
     remove(file_path)
-    #Move new file
     move(abs_path, file_path)
 
-def runPreCommands(cwd, checkoutBranch=""):
+def runPreCommands(cwd, pull, checkoutBranch=""):
     print("runPreCommands")
     os.system("cd "+cwd+" && make kill-all-containers")
     time.sleep(1)
@@ -101,25 +87,31 @@ def runPreCommands(cwd, checkoutBranch=""):
         command = "git -C "+cwd+" checkout "+checkoutBranch
         os.system(command)
     time.sleep(1)
-    os.system("git -C "+cwd+" pull")
-    time.sleep(1)
-    # os.system("(cd competition-round/ && make init)")
-    # os.system("(cd competition-round/ && make build-solution)")
+    if pull:
+        os.system("git -C "+cwd+" pull")
+        time.sleep(1)
 
-def runCommands(cwd):
+def runCommands(cwd, init, build, extra_cpus, sim_no_gui):
     print("runCommands")
-    # subprocess.run(["make", "kill-all-containers"], cwd=cwd)
-    # time.sleep(1)
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
-    subprocess.run(["make", "init"], cwd=cwd)
-    time.sleep(1)
-    subprocess.Popen(["make", "run-sim"], cwd=cwd)
+    if init:
+        subprocess.run(["make", "init"], cwd=cwd)
+        time.sleep(1)
+    if build:
+        subprocess.run(["make", "build-solution"], cwd=cwd)
+        time.sleep(1)
+
+    if sim_no_gui:
+        subprocess.Popen(["make", "run-sim-no-gui"], cwd=cwd)
+    else:
+        subprocess.Popen(["make", "run-sim"], cwd=cwd)
     time.sleep(65)
-    # subprocess.run(["clear"], cwd=cwd)
-    # time.sleep(1)
-    subprocess.run(["make", "run-solution"], cwd=cwd)
-    # time.sleep(10)
+
+    if extra_cpus:
+        subprocess.run(["make", "run-solution-extra-cpus"], cwd=cwd)
+    else:
+        subprocess.run(["make", "run-solution"], cwd=cwd)
     # time.sleep(60)
     # subprocess.run(["make", "kill-all-containers"], cwd="competition-round/")
     # subprocess.run(["clear"], cwd="competition-round/")
@@ -135,11 +127,10 @@ def runCommands(cwd):
 def runSimOnly(cwd):
     subprocess.run(["make", "kill-all-containers"], cwd=cwd)
     time.sleep(1)
+    subprocess.run(["clear"], cwd=cwd)
+    time.sleep(1)
     subprocess.Popen(["make", "run-sim"], cwd=cwd)
     time.sleep(65)
-    subprocess.run(["clear"], cwd=cwd)
-    # subprocess.Popen(["gnome-terminal", "--tab-with-profile=a", "--", "make", "run-solution"], cwd="competition-round/")
-    # time.sleep(3)
     subprocess.run(["make", "run-solution"], cwd=cwd)
 
 def main():
@@ -152,6 +143,11 @@ def main():
     parser.add_argument('--seed_file_path', type=str, default="seedNumber.txt")
     parser.add_argument('--numberOfRovers', type=int, default=6)
     parser.add_argument('--makeSimOnly', type=bool, default=False)
+    parser.add_argument('--init', type=bool, default=False)
+    parser.add_argument('--build', type=bool, default=False)
+    parser.add_argument('--pull', type=bool, default=False)
+    parser.add_argument('--extra_cpus', type=bool, default=False)
+    parser.add_argument('--sim_no_gui', type=bool, default=False)
     args = parser.parse_args()
     print(args)
 
@@ -161,11 +157,16 @@ def main():
     seed_file_path = args.seed_file_path
     numberOfRovers = args.numberOfRovers
     makeSimOnly = args.makeSimOnly
+    init = args.init
+    build = args.build
+    pull = args.pull
+    extra_cpus = args.extra_cpus
+    sim_no_gui = args.sim_no_gui
     
     if makeSimOnly:
         runSimOnly(cwd)
     else:
-        runPreCommands(cwd, checkoutBranch)
+        runPreCommands(cwd, pull, checkoutBranch)
 
         updateSeedNum(file_path, seed_file_path, newSeed)
 
@@ -174,7 +175,7 @@ def main():
         else:
             sixRovers(file_path)
 
-        runCommands(cwd)
+        runCommands(cwd, init, build, extra_cpus, sim_no_gui)
 
 
 if __name__ == "__main__":

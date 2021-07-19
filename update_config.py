@@ -93,8 +93,12 @@ def runPreCommands(cwd, pull, checkoutBranch=""):
         os.system("git -C "+cwd+" pull")
         time.sleep(1)
 
-def runCommands(cwd, init, build, extra_cpus, sim_no_gui):
+def runCommands(cwd, init, build, extra_cpus, sim_no_gui, first_run_on_pre_init_and_build):
     print("runCommands")
+    if first_run_on_pre_init_and_build:
+        subprocess.Popen(["make", "run-sim"], cwd=cwd)
+        time.sleep(180)
+        subprocess.run(["make", "kill-all-containers"], cwd=cwd)
     if init:
         subprocess.run(["make", "init"], cwd=cwd)
         time.sleep(1)
@@ -148,6 +152,7 @@ def main():
     parser.add_argument('--pull', type=bool, default=False)
     parser.add_argument('--extra_cpus', type=bool, default=False)
     parser.add_argument('--sim_no_gui', type=bool, default=False)
+    parser.add_argument('--first_run_on_pre_init_and_build', type=bool, default=False)
     args = parser.parse_args()
     print(args)
 
@@ -162,6 +167,7 @@ def main():
     pull = args.pull
     extra_cpus = args.extra_cpus
     sim_no_gui = args.sim_no_gui
+    first_run_on_pre_init_and_build = args.first_run_on_pre_init_and_build
     
     if makeSimOnly:
         runSimOnly(cwd)
@@ -175,7 +181,7 @@ def main():
         else:
             sixRovers(file_path)
 
-        runCommands(cwd, init, build, extra_cpus, sim_no_gui)
+        runCommands(cwd, init, build, extra_cpus, sim_no_gui, first_run_on_pre_init_and_build)
 
 
 if __name__ == "__main__":

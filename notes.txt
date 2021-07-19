@@ -13,7 +13,7 @@ make run-sim-no-gui               --no-sim-gui
 e.g: python3 update_config.py --branch master --pull --init --build --seed 30923
 
 ----------scripts-----------
-# enter the required seed number. Run only ONE.
+# enter the required seed number. Run one of the two commands below (either pull branch or don't).
 python3 update_config.py --branch master --seed
 python3 update_config.py --branch master --pull True --seed
 

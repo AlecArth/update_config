@@ -96,7 +96,7 @@ def runPreCommands(cwd, pull, checkoutBranch=""):
 def runCommands(cwd, init, build, extra_cpus, sim_no_gui, first_run_on_pre_init_and_build):
     print("runCommands")
     if first_run_on_pre_init_and_build:
-        subprocess.Popen(["make", "run-sim"], cwd=cwd)
+        subprocess.Popen(["sudo", "make", "run-sim"], cwd=cwd)
         time.sleep(180)
         subprocess.run(["make", "kill-all-containers"], cwd=cwd)
     if init:

@@ -114,13 +114,13 @@ def runCommands(cwd, init, build, extra_cpus, sim_no_gui):
     if sim_no_gui:
         subprocess.Popen(["make", "run-sim-no-gui"], cwd=cwd)
     else:
-        subprocess.Popen(["make", "run-sim"], cwd=cwd)
-    time.sleep(65)
+        subprocess.run(["make", "run-sim"], cwd=cwd)
+    # time.sleep(65)
 
-    if extra_cpus:
-        subprocess.run(["make", "run-solution-extra-cpus"], cwd=cwd)
-    else:
-        subprocess.run(["make", "run-solution"], cwd=cwd)
+    # if extra_cpus:
+    #     subprocess.run(["make", "run-solution-extra-cpus"], cwd=cwd)
+    # else:
+    #     subprocess.run(["make", "run-solution"], cwd=cwd)
     # time.sleep(60)
     # subprocess.run(["make", "kill-all-containers"], cwd="competition-round/")
     # subprocess.run(["clear"], cwd="competition-round/")
@@ -142,30 +142,6 @@ def runSimOnly(cwd):
     time.sleep(65)
     subprocess.run(["make", "run-solution"], cwd=cwd)
 
-def updateImageTag(cwd):
-    pass 
-
-def getCurrentSeed(seed_file_path):
-    print("getCurrentSeed")
-    if os.path.exists(seed_file_path):
-        with open(seed_file_path) as file:
-            first_line = file.readline()
-        return first_line
-    else:
-        return 1000
-
-def saveCurrentSeed(seed_file_path, seedNum):
-    print("saveCurrentSeed")
-    if os.path.exists(seed_file_path):
-
-        file = open(seed_file_path, 'w')
-        file.write(str(seedNum))
-        file.close()
-    else:
-        file = open(seed_file_path, 'x')
-        file.write("1000")
-        file.close()
-
 def main():
     cwd = "../competition-round/"
 
@@ -181,7 +157,6 @@ def main():
     parser.add_argument('--pull', type=bool, default=False)
     parser.add_argument('--extra_cpus', type=bool, default=False)
     parser.add_argument('--sim_no_gui', type=bool, default=False)
-    parser.add_argument('--image_tag_nasa', type=bool, default=False)
     args = parser.parse_args()
     print(args)
 
@@ -196,11 +171,7 @@ def main():
     pull = args.pull
     extra_cpus = args.extra_cpus
     sim_no_gui = args.sim_no_gui
-    image_tag_nasa = args.image_tag_nasa
 
-    if(image_tag_nasa):
-        updateImageTag(cwd)
-    
     if makeSimOnly:
         runSimOnly(cwd)
     else:

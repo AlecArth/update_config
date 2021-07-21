@@ -1,0 +1,843 @@
+2021-07-20 19:58:57.342 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:38.902000'
+message: 'Entering state: /challenge/mission/small_hauler_1/unpark_from_excavator'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 19:58:58.228 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: drive_for_seconds, message: distance: 3.0
+velocity: -0.4000000059604645
+2021-07-20 19:59:57.470 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: drive_for_seconds
+2021-07-20 19:59:57.808 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:46.252000'
+message: 'Exiting state: /challenge/mission/small_hauler_1/unpark_from_excavator'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 19:59:58.458 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:46.336000'
+message: 'Entering state: /challenge/mission/small_excavator_1/arm_dig_home'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811198.577200, 1246.352000]: State machine transitioning 'unpark_from_excavator':'unpark_from_excavator_EXITED'-->'transition'
+[INFO] [1626811198.584127, 1246.352000]: State machine transitioning 'transition':'figure_out_what_to_do'-->'figure_out_what_to_do'
+2021-07-20 19:59:58.586 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:46.352000'
+message: 'Entering state: /challenge/mission/small_hauler_1/figure_out_what_to_do'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 19:59:59.253 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: arm_driving_home_action, message: value: 0
+2021-07-20 19:59:59.374 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: follow_rover, message: x: 0.0
+y: 0.0
+distance: 0.0
+best_effort: False
+2021-07-20 19:59:59.379 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:46.452000'
+message: New job potentially available but hauler bin full.                        Sending
+  small_hauler_1 to dump and recharge state
+rover_name: null
+service_name: services.brain.brain_service
+
+2021-07-20 19:59:59.382 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:46.453000'
+message: 'Exiting state: /challenge/mission/small_hauler_1/figure_out_what_to_do'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811200.190802, 1246.553000]: State machine transitioning 'figure_out_what_to_do':'figure_out_what_to_do_EXITED'-->'transition'
+[INFO] [1626811200.196435, 1246.553000]: State machine transitioning 'transition':'dump_and_recharge'-->'dump_and_recharge'
+[INFO] [1626811200.198064, 1246.554000]: Concurrence starting with userdata: 
+	[]
+[INFO] [1626811200.203374, 1246.555000]: State machine starting in initial state 'transition' with userdata: 
+	[]
+2021-07-20 20:00:00.206 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:46.555000'
+message: 'Entering state: /challenge/mission/small_hauler_1/dump_and_recharge'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811200.963781, 1246.655000]: State machine transitioning 'transition':'goto_checkpoint'-->'goto_checkpoint'
+2021-07-20 20:00:00.966 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:46.655000'
+message: 'Entering state: /challenge/mission/small_hauler_1/dump_and_recharge/goto_checkpoint'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:00:01.792 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: goto_dumping_checkpoint, message: value: 0
+2021-07-20 20:00:01.825 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:46.767000'
+message: approaching processing plant
+rover_name: small_hauler_1
+service_name: behaviour.actions.hauler.goto_dumping_checkpoint
+
+2021-07-20 20:00:18.292 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: arm_driving_home_action
+2021-07-20 20:00:18.642 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:48.886000'
+message: 'Exiting state: /challenge/mission/small_excavator_1/arm_dig_home'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811219.488043, 1248.986000]: State machine transitioning 'arm_dig_home':'arm_dig_home_EXITED'-->'transition'
+[INFO] [1626811219.493607, 1248.986000]: State machine transitioning 'transition':'figure_out_what_to_do'-->'figure_out_what_to_do'
+2021-07-20 20:00:19.498 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:48.986000'
+message: 'Entering state: /challenge/mission/small_excavator_1/figure_out_what_to_do'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:00:20.370 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: follow_rover, message: x: 0.0
+y: 0.0
+distance: 0.0
+best_effort: False
+2021-07-20 20:00:20.386 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:49.088000'
+message: New job available.                        Sending small_excavator_1 to get
+  excavation job state
+rover_name: null
+service_name: services.brain.brain_service
+
+2021-07-20 20:00:20.387 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:49.088000'
+message: 'Exiting state: /challenge/mission/small_excavator_1/figure_out_what_to_do'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811221.357440, 1249.188000]: State machine transitioning 'figure_out_what_to_do':'figure_out_what_to_do_EXITED'-->'transition'
+[INFO] [1626811221.359263, 1249.188000]: State machine transitioning 'transition':'get_excavation_job'-->'get_excavation_job'
+2021-07-20 20:00:21.361 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:49.188000'
+message: 'Entering state: /challenge/mission/small_excavator_1/get_excavation_job'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:00:22.106 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:49.288000'
+message: 'small_excavator_1 requested an excavation job.                Sending: DiggingJob(digsite=[36.997605101011175,
+  -8.668059837074807], volatile_offset=[0.5664585828781128, -0.7733845114707947],
+  excavator_waypoint_offset=[-2.070394992828369, -1.1101140975952148], hauler_waypoint_offset=None)'
+rover_name: null
+service_name: services.brain.brain_service
+
+2021-07-20 20:00:22.107 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:49.288000'
+message: 'Exiting state: /challenge/mission/small_excavator_1/get_excavation_job'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811223.022132, 1249.388000]: State machine transitioning 'get_excavation_job':'get_excavation_job_EXITED'-->'transition'
+[INFO] [1626811223.025118, 1249.388000]: State machine transitioning 'transition':'goto_scout'-->'goto_scout'
+2021-07-20 20:00:23.028 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:49.388000'
+message: 'Entering state: /challenge/mission/small_excavator_1/goto_scout'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:00:23.801 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: approach_rover, message: target_entity_name: "small_scout_1"
+2021-07-20 20:00:23.805 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:49.488000'
+message: approaching rover
+rover_name: small_excavator_1
+service_name: behaviour.actions.shared.approach_rover_action
+
+2021-07-20 20:01:15.475 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: park_at_hopper
+2021-07-20 20:01:15.790 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:55.630000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/park_at_hopper'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811276.550044, 1255.730000]: State machine transitioning 'park_at_hopper':'park_at_hopper_EXITED'-->'transition'
+[INFO] [1626811276.551530, 1255.730000]: State machine transitioning 'transition':'empty_bin'-->'empty_bin'
+[INFO] [1626811276.552608, 1255.730000]: Concurrence starting with userdata: 
+	[]
+[INFO] [1626811276.554073, 1255.730000]: State machine starting in initial state 'transition' with userdata: 
+	[]
+2021-07-20 20:01:16.558 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:55.731000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811277.485963, 1255.832000]: State machine transitioning 'transition':'tip_bin'-->'tip_bin'
+2021-07-20 20:01:17.488 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:20:55.832000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:01:18.411 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: empty_bin, message: value: 0
+2021-07-20 20:02:16.862 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: empty_bin
+2021-07-20 20:02:17.264 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:02.986000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811338.183160, 1263.086000]: State machine transitioning 'tip_bin':'tip_bin_EXITED'-->'transition'
+[INFO] [1626811338.185742, 1263.086000]: State machine transitioning 'transition':'tip_bin'-->'tip_bin'
+2021-07-20 20:02:18.190 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:03.086000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:02:19.174 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: empty_bin, message: value: 0
+2021-07-20 20:03:15.947 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: empty_bin
+2021-07-20 20:03:16.302 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:10.236000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811397.062544, 1270.336000]: State machine transitioning 'tip_bin':'tip_bin_EXITED'-->'transition'
+[INFO] [1626811397.064275, 1270.336000]: State machine transitioning 'transition':'tip_bin'-->'tip_bin'
+2021-07-20 20:03:17.066 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:10.336000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:03:17.861 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: empty_bin, message: value: 0
+2021-07-20 20:04:14.905 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: empty_bin
+2021-07-20 20:04:14.909 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:17.436000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811455.670718, 1277.536000]: State machine transitioning 'tip_bin':'tip_bin_EXITED'-->'transition'
+[INFO] [1626811455.672361, 1277.536000]: State machine transitioning 'transition':'tip_bin'-->'tip_bin'
+2021-07-20 20:04:15.674 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:17.536000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:04:16.449 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: empty_bin, message: value: 0
+2021-07-20 20:04:34.190 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:19.936000'
+message: finding rover
+rover_name: small_excavator_1
+service_name: behaviour.actions.shared.approach_rover_action
+
+2021-07-20 20:04:34.192 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:19.937000'
+message: rotating towards target
+rover_name: small_excavator_1
+service_name: behaviour.actions.shared.approach_rover_action
+
+2021-07-20 20:04:37.533 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:20.389000'
+message: finding target
+rover_name: small_excavator_1
+service_name: behaviour.actions.shared.approach_rover_action
+
+2021-07-20 20:04:44.357 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: approach_rover
+2021-07-20 20:04:44.422 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:21.288000'
+message: 'Exiting state: /challenge/mission/small_excavator_1/goto_scout'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:04:44.754 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:21.332000'
+message: 'Exiting state: /challenge/mission/small_scout_1/submit_excavation_job'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811485.204010, 1281.388000]: State machine transitioning 'goto_scout':'goto_scout_EXITED'-->'transition'
+[INFO] [1626811485.205674, 1281.388000]: State machine transitioning 'transition':'park_at_scout'-->'park_at_scout'
+[INFO] [1626811485.484323, 1281.432000]: State machine transitioning 'submit_excavation_job':'submit_excavation_job_EXITED'-->'transition'
+[INFO] [1626811485.486189, 1281.432000]: State machine transitioning 'transition':'initiate_digging'-->'initiate_digging'
+2021-07-20 20:04:45.487 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:21.432000'
+message: 'Entering state: /challenge/mission/small_scout_1/initiate_digging'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:04:46.167 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:21.532000'
+message: 'Exiting state: /challenge/mission/small_scout_1/initiate_digging'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811486.941626, 1281.632000]: State machine transitioning 'initiate_digging':'initiate_digging_EXITED'-->'transition'
+[INFO] [1626811486.942930, 1281.632000]: State machine transitioning 'transition':'explore'-->'explore'
+2021-07-20 20:04:46.944 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:21.632000'
+message: 'Entering state: /challenge/mission/small_scout_1/explore'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:04:47.654 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: exploration, message: digsite_x: 36.99639892578125
+digsite_y: -8.667271614074707
+2021-07-20 20:05:11.318 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: empty_bin
+2021-07-20 20:05:11.330 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:24.636000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811512.030422, 1284.736000]: State machine transitioning 'tip_bin':'tip_bin_EXITED'-->'transition'
+[INFO] [1626811512.031796, 1284.736000]: State machine transitioning 'transition':'tip_bin'-->'tip_bin'
+2021-07-20 20:05:12.033 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:24.736000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:05:13.182 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: empty_bin, message: value: 0
+2021-07-20 20:06:17.807 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: empty_bin
+2021-07-20 20:06:18.241 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:31.886000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin/tip_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811579.127325, 1291.986000]: State machine transitioning 'tip_bin':'tip_bin_EXITED'-->'transition'
+2021-07-20 20:06:19.135 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:31.986000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811580.266631, 1292.087000]: State machine terminating 'transition':'empty_bin_EXITED':'empty_bin_EXITED'
+[INFO] [1626811580.269698, 1292.087000]: Concurrent state 'inner_state_machine' returned outcome 'empty_bin_EXITED' on termination.
+[INFO] [1626811580.277936, 1292.088000]: Concurrent state '/challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin_monitor' returned outcome 'preempted' on termination.
+[INFO] [1626811580.282470, 1292.089000]: Concurrent Outcomes: {'/challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/empty_bin_monitor': 'preempted', 'inner_state_machine': 'empty_bin_EXITED'}
+[INFO] [1626811580.290220, 1292.090000]: State machine transitioning 'empty_bin':'empty_bin_EXITED'-->'transition'
+[INFO] [1626811580.296036, 1292.090000]: State machine transitioning 'transition':'finish_dump'-->'finish_dump'
+2021-07-20 20:06:20.303 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:32.091000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/finish_dump'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:06:21.149 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:32.191000'
+message: small_hauler_2 finished dumping job.
+rover_name: null
+service_name: services.brain.brain_service
+
+2021-07-20 20:06:21.152 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:32.191000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/finish_dump'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811582.080326, 1292.291000]: State machine transitioning 'finish_dump':'finish_dump_EXITED'-->'transition'
+[INFO] [1626811582.082763, 1292.291000]: State machine transitioning 'transition':'unpark_from_hopper'-->'unpark_from_hopper'
+2021-07-20 20:06:22.085 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:32.291000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/unpark_from_hopper'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:06:23.001 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: drive_for_seconds, message: distance: 3.0
+velocity: -0.4000000059604645
+2021-07-20 20:07:52.313 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: drive_for_seconds
+2021-07-20 20:07:52.799 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:41.992000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/unpark_from_hopper'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811673.829518, 1302.092000]: State machine transitioning 'unpark_from_hopper':'unpark_from_hopper_EXITED'-->'transition'
+[INFO] [1626811673.838392, 1302.092000]: State machine transitioning 'transition':'recharge'-->'recharge'
+2021-07-20 20:07:53.848 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:42.094000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/recharge'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:07:54.667 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: recharge, message: value: 0
+2021-07-20 20:07:54.686 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:42.200000'
+message: approaching repair station
+rover_name: small_hauler_2
+service_name: behaviour.actions.shared.recharge_action
+
+2021-07-20 20:08:14.879 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:44.200000'
+message: resetting ekf
+rover_name: small_hauler_2
+service_name: behaviour.actions.shared.recharge_action
+
+waiting for service: /small_hauler_2/lander_detection
+waiting for service: /reset_ekf_with_pnp
+2021-07-20 20:08:36.923 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:46.454000'
+message: moving towards waypoint [29.527251541863137, -14.550380540665437]
+rover_name: small_hauler_1
+service_name: behaviour.actions.shared.follow_rover_action
+
+2021-07-20 20:08:40.026 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: follow_rover
+[WARN] [1626811720.027172, 1306.797000]: Your executeCallback did not set the goal to a terminal status.  This is a bug in your ActionServer implementation. Fix your code!  For now, the ActionServer will set this goal to aborted
+
+Reset PnP Service
+regressing landmarks...
+found processing: True
+found repair: True
+processing plant detected: True
+repair plant detected: True
+2021-07-20 20:08:48.850 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:47.698000'
+message: parking at repair station
+rover_name: small_hauler_2
+service_name: behaviour.actions.shared.recharge_action
+
+2021-07-20 20:10:11.964 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:56.129000'
+message: resetting ekf
+rover_name: small_hauler_1
+service_name: behaviour.actions.hauler.goto_dumping_checkpoint
+
+waiting for service: /small_hauler_1/lander_detection
+waiting for service: /reset_ekf_with_pnp
+
+Reset PnP Service
+regressing landmarks...
+found processing: True
+found repair: True
+processing plant detected: True
+repair plant detected: True
+2021-07-20 20:10:29.226 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:21:57.900000'
+message: going to parking checkpoint
+rover_name: small_hauler_1
+service_name: behaviour.actions.hauler.goto_dumping_checkpoint
+
+2021-07-20 20:10:53.301 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: recharge
+2021-07-20 20:10:53.561 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:00.600000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/recharge'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626811854.625389, 1320.700000]: State machine transitioning 'recharge':'recharge_EXITED'-->'transition'
+[INFO] [1626811854.634040, 1320.700000]: State machine transitioning 'transition':'leave_lander_area'-->'leave_lander_area'
+2021-07-20 20:10:54.638 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:00.701000'
+message: 'Entering state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/leave_lander_area'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:10:55.725 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: smart_goto, message: x: 6.194538593292236
+y: 15.143683433532715
+distance: 1.0
+best_effort: True
+2021-07-20 20:11:14.764 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:02.806000'
+message: 'going to destination: [6.194538593292236, 15.143683433532715]'
+rover_name: small_hauler_2
+service_name: behaviour.actions.shared.smart_goto_action
+
+2021-07-20 20:14:55.605 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: goto_dumping_checkpoint
+2021-07-20 20:14:55.859 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:26.915000'
+message: 'Exiting state: /challenge/mission/small_hauler_1/dump_and_recharge/goto_checkpoint'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812096.680198, 1347.015000]: State machine transitioning 'goto_checkpoint':'goto_checkpoint_EXITED'-->'transition'
+[INFO] [1626812096.686705, 1347.016000]: State machine transitioning 'transition':'dump_and_leave'-->'dump_and_leave'
+[INFO] [1626812096.690196, 1347.017000]: Concurrence starting with userdata: 
+	[]
+[INFO] [1626812096.705451, 1347.018000]: State machine starting in initial state 'transition' with userdata: 
+	[]
+2021-07-20 20:17:05.550 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: smart_goto
+2021-07-20 20:17:05.726 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.403000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave/leave_lander_area'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812226.394838, 1361.503000]: State machine transitioning 'leave_lander_area':'leave_lander_area_EXITED'-->'transition'
+2021-07-20 20:17:06.397 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.503000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:17:06.527 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.521000'
+message: 'Entering state: /challenge/mission/small_hauler_1/dump_and_recharge/dump_and_leave'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812227.357119, 1361.603000]: State machine terminating 'transition':'dump_and_leave_EXITED':'dump_and_leave_EXITED'
+[INFO] [1626812227.358912, 1361.603000]: Concurrent state 'inner_state_machine' returned outcome 'dump_and_leave_EXITED' on termination.
+[INFO] [1626812227.364008, 1361.604000]: Concurrent state '/challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave_monitor' returned outcome 'preempted' on termination.
+[INFO] [1626812227.365789, 1361.604000]: Concurrent Outcomes: {'/challenge/mission/small_hauler_2/dump_and_recharge/dump_and_leave_monitor': 'preempted', 'inner_state_machine': 'dump_and_leave_EXITED'}
+[INFO] [1626812227.367725, 1361.604000]: State machine transitioning 'dump_and_leave':'dump_and_leave_EXITED'-->'transition'
+2021-07-20 20:17:07.374 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.605000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/dump_and_recharge'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812227.480076, 1361.621000]: State machine transitioning 'transition':'park_at_hopper'-->'park_at_hopper'
+2021-07-20 20:17:07.483 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.621000'
+message: 'Entering state: /challenge/mission/small_hauler_1/dump_and_recharge/dump_and_leave/park_at_hopper'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812228.124891, 1361.706000]: State machine terminating 'transition':'dump_and_recharge_EXITED':'dump_and_recharge_EXITED'
+[INFO] [1626812228.127558, 1361.706000]: Concurrent state 'inner_state_machine' returned outcome 'dump_and_recharge_EXITED' on termination.
+[INFO] [1626812228.141332, 1361.708000]: Concurrent state '/challenge/mission/small_hauler_2/dump_and_recharge_monitor' returned outcome 'preempted' on termination.
+[INFO] [1626812228.145841, 1361.709000]: Concurrent Outcomes: {'/challenge/mission/small_hauler_2/dump_and_recharge_monitor': 'preempted', 'inner_state_machine': 'dump_and_recharge_EXITED'}
+[INFO] [1626812228.148652, 1361.709000]: State machine transitioning 'dump_and_recharge':'dump_and_recharge_EXITED'-->'transition'
+[INFO] [1626812228.150694, 1361.709000]: State machine transitioning 'transition':'figure_out_what_to_do'-->'figure_out_what_to_do'
+2021-07-20 20:17:08.153 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.709000'
+message: 'Entering state: /challenge/mission/small_hauler_2/figure_out_what_to_do'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:17:08.364 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: park_at_hopper, message: value: 0
+2021-07-20 20:17:08.377 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.738000'
+message: rotating to the waypoint in front of hopper
+rover_name: small_hauler_1
+service_name: behaviour.actions.hauler.park_at_hopper
+
+2021-07-20 20:17:09.062 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: follow_rover, message: x: 0.0
+y: 0.0
+distance: 0.0
+best_effort: False
+2021-07-20 20:17:09.063 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.810000'
+message: moving towards waypoint [-17.817742169217073, 25.615007359440234]
+rover_name: small_hauler_2
+service_name: behaviour.actions.shared.follow_rover_action
+
+2021-07-20 20:17:09.080 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.812000'
+message: New job available.                    Sending small_hauler_2 to get hauling
+  job state
+rover_name: null
+service_name: services.brain.brain_service
+
+2021-07-20 20:17:09.081 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.812000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/figure_out_what_to_do'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812229.909721, 1361.912000]: State machine transitioning 'figure_out_what_to_do':'figure_out_what_to_do_EXITED'-->'transition'
+[INFO] [1626812229.918547, 1361.912000]: State machine transitioning 'transition':'get_hauling_job'-->'get_hauling_job'
+2021-07-20 20:17:09.920 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:41.912000'
+message: 'Entering state: /challenge/mission/small_hauler_2/get_hauling_job'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:17:10.851 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.013000'
+message: 'small_hauler_2 requested a hauling job.                Sending: DiggingJob(digsite=[-18.42230580247503,
+  26.205759982530225], volatile_offset=[0.3752140998840332, 0.46890273690223694],
+  excavator_waypoint_offset=[-1.5171035528182983, -1.7936793565750122], hauler_waypoint_offset=[4.660925388336182,
+  -0.5927302241325378])'
+rover_name: null
+service_name: services.brain.brain_service
+
+2021-07-20 20:17:10.852 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.014000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/get_hauling_job'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[ERROR] [1626812230.972048, 1362.024000]: Exception in your execute callback: 'LineString' object has no attribute 'exterior'
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/actionlib/simple_action_server.py", line 289, in executeLoop
+    self.execute_callback(goal)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/base_action.py", line 52, in behaviour_callback
+    self.behaviour(goal)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/shared/follow_rover_action.py", line 109, in behaviour
+    _ = self._waypoint_driver.goto_waypoint(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/driver/waypoint_driver/waypoint_driver.py", line 77, in goto_waypoint
+    self._get_latest_message_from_path_planner()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/driver/waypoint_driver/waypoint_driver.py", line 111, in _get_latest_message_from_path_planner
+    self._path_planner_response = self._path_planner.get_next_waypoint(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/path_planning/smart_path_planner.py", line 153, in get_next_waypoint
+    self._obstacle_space._publish_obstacles_for_visualisation(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/path_planning/obstacle_space.py", line 224, in _publish_obstacles_for_visualisation
+    for point in asarray(obstacle.exterior.coords):
+AttributeError: 'LineString' object has no attribute 'exterior'
+
+[INFO] [1626812231.761570, 1362.114000]: State machine transitioning 'get_hauling_job':'get_hauling_job_EXITED'-->'transition'
+[INFO] [1626812231.763260, 1362.114000]: State machine transitioning 'transition':'goto_excavator'-->'goto_excavator'
+2021-07-20 20:17:11.766 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.114000'
+message: 'Entering state: /challenge/mission/small_hauler_2/goto_excavator'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+2021-07-20 20:17:12.541 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: approach_rover, message: target_entity_name: "small_excavator_2"
+2021-07-20 20:17:12.542 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.215000'
+message: approaching rover
+rover_name: small_hauler_2
+service_name: behaviour.actions.shared.approach_rover_action
+
+[ERROR] [1626812234.372866, 1362.425000]: Exception in your execute callback: 'LineString' object has no attribute 'exterior'
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/actionlib/simple_action_server.py", line 289, in executeLoop
+    self.execute_callback(goal)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/base_action.py", line 52, in behaviour_callback
+    self.behaviour(goal)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/shared/approach_rover_action.py", line 81, in behaviour
+    self._approach()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/shared/approach_rover_action.py", line 102, in _approach
+    self._waypoint_driver.goto_waypoint(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/driver/waypoint_driver/waypoint_driver.py", line 77, in goto_waypoint
+    self._get_latest_message_from_path_planner()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/driver/waypoint_driver/waypoint_driver.py", line 111, in _get_latest_message_from_path_planner
+    self._path_planner_response = self._path_planner.get_next_waypoint(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/path_planning/smart_path_planner.py", line 153, in get_next_waypoint
+    self._obstacle_space._publish_obstacles_for_visualisation(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/path_planning/obstacle_space.py", line 224, in _publish_obstacles_for_visualisation
+    for point in asarray(obstacle.exterior.coords):
+AttributeError: 'LineString' object has no attribute 'exterior'
+
+2021-07-20 20:17:14.665 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.465000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/goto_excavator'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812235.444370, 1362.565000]: State machine transitioning 'goto_excavator':'goto_excavator_EXITED'-->'transition'
+[ERROR] [1626812235.449472, 1362.565000]: InvalidUserCodeError: Could not execute state 'transition' of type '<state_machine.states.submission.robot_transition_states.HaulerSubmissionTransitionState object at 0x7f37486411c0>': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+[ERROR] [1626812235.453392, 1362.566000]: InvalidStateError: Could not execute child state 'inner_state_machine': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 359, in execute
+    container_outcome = self._update_once()
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 252, in _update_once
+    raise smach.InvalidUserCodeError("Could not execute state '%s' of type '%s': " %
+smach.exceptions.InvalidUserCodeError: Could not execute state 'transition' of type '<state_machine.states.submission.robot_transition_states.HaulerSubmissionTransitionState object at 0x7f37486411c0>': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+
+Exception in thread concurrent_split:inner_state_machine:
+Traceback (most recent call last):
+[INFO] [1626812235.464103, 1362.567000]: Concurrent state '/challenge/mission/small_hauler_2_monitor' returned outcome 'preempted' on termination.
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 359, in execute
+    container_outcome = self._update_once()
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 252, in _update_once
+    raise smach.InvalidUserCodeError("Could not execute state '%s' of type '%s': " %
+smach.exceptions.InvalidUserCodeError: Could not execute state 'transition' of type '<state_machine.states.submission.robot_transition_states.HaulerSubmissionTransitionState object at 0x7f37486411c0>': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 344, in _state_runner
+    raise smach.InvalidStateError(("Could not execute child state '%s': " % label)+traceback.format_exc())
+smach.exceptions.InvalidStateError: Could not execute child state 'inner_state_machine': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 359, in execute
+    container_outcome = self._update_once()
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 252, in _update_once
+    raise smach.InvalidUserCodeError("Could not execute state '%s' of type '%s': " %
+smach.exceptions.InvalidUserCodeError: Could not execute state 'transition' of type '<state_machine.states.submission.robot_transition_states.HaulerSubmissionTransitionState object at 0x7f37486411c0>': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+
+[ERROR] [1626812235.552708, 1362.579000]: InvalidStateError: A concurrent state raised an exception during execution.
+[ERROR] [1626812235.558450, 1362.579000]: InvalidStateError: Could not execute child state 'small_hauler_2': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 256, in execute
+    raise smach.InvalidStateError("A concurrent state raised an exception during execution.")
+smach.exceptions.InvalidStateError: A concurrent state raised an exception during execution.
+
+Exception in thread concurrent_split:small_hauler_2:
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+[INFO] [1626812235.566407, 1362.581000]: Concurrent state '/challenge/mission/small_hauler_1/dump_and_recharge_monitor' returned outcome 'preempted' on termination.
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 256, in execute
+[INFO] [1626812235.569617, 1362.581000]: Concurrent state '/challenge/mission_monitor' returned outcome 'preempted' on termination.
+    raise smach.InvalidStateError("A concurrent state raised an exception during execution.")
+smach.exceptions.InvalidStateError: A concurrent state raised an exception during execution.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+[INFO] [1626812235.571816, 1362.581000]: Concurrent state '/challenge/mission/small_excavator_1_monitor' returned outcome 'preempted' on termination.
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 344, in _state_runner
+[INFO] [1626812235.575971, 1362.582000]: Concurrent state '/challenge/mission/small_excavator_2_monitor' returned outcome 'preempted' on termination.
+    raise smach.InvalidStateError(("Could not execute child state '%s': " % label)+traceback.format_exc())
+smach.exceptions.InvalidStateError: Could not execute child state 'small_hauler_2': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 256, in execute
+    raise smach.InvalidStateError("A concurrent state raised an exception during execution.")
+smach.exceptions.InvalidStateError: A concurrent state raised an exception during execution.
+
+[INFO] [1626812235.580366, 1362.582000]: Concurrent state '/challenge/mission/small_scout_1_monitor' returned outcome 'preempted' on termination.
+[INFO] [1626812235.582603, 1362.583000]: Concurrent state '/challenge/mission/small_hauler_1/dump_and_recharge/dump_and_leave_monitor' returned outcome 'preempted' on termination.
+[INFO] [1626812235.585365, 1362.583000]: Concurrent state '/challenge/mission/small_scout_2_monitor' returned outcome 'preempted' on termination.
+[INFO] [1626812235.593951, 1362.583000]: Concurrent state '/challenge/mission/small_hauler_1_monitor' returned outcome 'preempted' on termination.
+2021-07-20 20:17:15.621 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.589000'
+message: 'Exiting state: /challenge/mission/small_scout_2/wait_for_dig_to_begin'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812235.626310, 1362.589000]: State machine transitioning 'wait_for_dig_to_begin':'wait_for_dig_to_begin_EXITED'-->'transition'
+[INFO] [1626812235.633436, 1362.590000]: Preempt requested on state machine before executing the next state.
+2021-07-20 20:17:15.635 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.590000'
+message: 'Exiting state: /challenge/mission/small_scout_2'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812235.635574, 1362.590000]: State machine terminating 'transition':'small_scout_2_EXITED':'small_scout_2_EXITED'
+[INFO] [1626812235.636717, 1362.590000]: Concurrent state 'inner_state_machine' returned outcome 'small_scout_2_EXITED' on termination.
+[INFO] [1626812235.638211, 1362.590000]: Concurrence serviced preempt.
+[INFO] [1626812235.639537, 1362.590000]: Concurrent Outcomes: {'/challenge/mission/small_scout_2_monitor': 'preempted', 'inner_state_machine': 'small_scout_2_EXITED'}
+[INFO] [1626812235.640573, 1362.590000]: Concurrent state 'small_scout_2' returned outcome 'small_scout_2_EXITED' on termination.
+2021-07-20 20:17:15.811 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: park_at_scout, message: scout_x: 37.56721115112305
+scout_y: -9.36270809173584
+volatile_offset_x: 0.5664585828781128
+volatile_offset_y: -0.7733845114707947
+waypoint_offset_x: -2.070394992828369
+waypoint_offset_y: -1.1101140975952148
+2021-07-20 20:17:15.813 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.606000'
+message: going to triangle point
+rover_name: small_excavator_1
+service_name: behaviour.actions.excavator.park_at_scout
+
+2021-07-20 20:17:16.091 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:42.639000'
+message: moving to in front of hopper
+rover_name: small_hauler_1
+service_name: behaviour.actions.hauler.park_at_hopper
+
+2021-07-20 20:17:16.187 | INFO     | behaviour.actions.base_action:behaviour_callback:51 - Action called: infer_hauler_bin_position, message: hauler_is_left: False
+2021-07-20 20:18:14.156 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:49.112000'
+message: sufficiently far away from digsite. exiting exploration.
+rover_name: small_scout_1
+service_name: behaviour.actions.scout.scout_exploration_action
+
+2021-07-20 20:18:14.266 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:49.132000'
+message: 'Exiting state: /challenge/mission/small_scout_1/explore'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812294.266554, 1369.132000]: State machine transitioning 'explore':'explore_EXITED'-->'transition'
+[INFO] [1626812294.268300, 1369.132000]: Preempt requested on state machine before executing the next state.
+2021-07-20 20:18:14.269 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:49.132000'
+message: 'Exiting state: /challenge/mission/small_scout_1'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626812294.270005, 1369.132000]: State machine terminating 'transition':'small_scout_1_EXITED':'small_scout_1_EXITED'
+[INFO] [1626812294.272583, 1369.133000]: Concurrent state 'inner_state_machine' returned outcome 'small_scout_1_EXITED' on termination.
+[INFO] [1626812294.274022, 1369.133000]: Concurrence serviced preempt.
+[INFO] [1626812294.275769, 1369.133000]: Concurrent Outcomes: {'/challenge/mission/small_scout_1_monitor': 'preempted', 'inner_state_machine': 'small_scout_1_EXITED'}
+[INFO] [1626812294.277841, 1369.134000]: Concurrent state 'small_scout_1' returned outcome 'small_scout_1_EXITED' on termination.
+2021-07-20 20:18:15.858 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: exploration
+2021-07-20 20:19:03.681 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:55.080000'
+message: rotating towards volatiles
+rover_name: small_excavator_1
+service_name: behaviour.actions.excavator.park_at_scout
+
+2021-07-20 20:19:15.159 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:22:56.482000'
+message: moving forward to volatiles
+rover_name: small_excavator_1
+service_name: behaviour.actions.excavator.park_at_scout
+
+2021-07-20 20:20:42.022 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:23:06.984000'
+message: scanning for optimal park zone
+rover_name: small_excavator_1
+service_name: behaviour.actions.excavator.park_at_scout
+
+2021-07-20 20:20:44.505 | INFO     | behaviour.actions.base_action:behaviour_callback:53 - Action exiting: park_at_scout
+2021-07-20 20:20:44.797 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '0:23:07.306000'
+message: 'Exiting state: /challenge/mission/small_excavator_1/park_at_scout'
+rover_name: null
+service_name: state_machine.utils.ledger

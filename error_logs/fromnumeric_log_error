@@ -1,0 +1,181 @@
+2021-07-21 02:01:33.646 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '1:19:54.968000'
+message: finding target
+rover_name: small_hauler_2
+service_name: behaviour.actions.base_action
+
+[ERROR] [1626832898.079770, 4795.572000]: Exception in your execute callback: attempt to get argmax of an empty sequence
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/actionlib/simple_action_server.py", line 289, in executeLoop
+    self.execute_callback(goal)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/base_action.py", line 53, in behaviour_callback
+    self.behaviour(goal)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/shared/approach_rover_action.py", line 81, in behaviour
+    detection = self._find_rover()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/shared/approach_rover_action.py", line 135, in _find_rover
+    detection = self._get_target_rover_detection(start_scan_time)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/shared/approach_rover_action.py", line 320, in _get_target_rover_detection
+    closest_index = idxs_closest_to_target[np.argmax(distances)]
+  File "<__array_function__ internals>", line 5, in argmax
+  File "/usr/lib/python3/dist-packages/numpy/core/fromnumeric.py", line 1153, in argmax
+    return _wrapfunc(a, 'argmax', axis=axis, out=out)
+  File "/usr/lib/python3/dist-packages/numpy/core/fromnumeric.py", line 61, in _wrapfunc
+    return bound(*args, **kwds)
+ValueError: attempt to get argmax of an empty sequence
+
+2021-07-21 02:01:38.202 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '1:19:55.598000'
+message: 'Exiting state: /challenge/mission/small_hauler_2/goto_excavator'
+rover_name: null
+service_name: state_machine.utils.ledger
+
+[INFO] [1626832899.288381, 4795.700000]: State machine transitioning 'goto_excavator':'goto_excavator_EXITED'-->'transition'
+[ERROR] [1626832899.291920, 4795.701000]: InvalidUserCodeError: Could not execute state 'transition' of type '<state_machine.states.submission.robot_transition_states.HaulerSubmissionTransitionState object at 0x7fe88f7c1d30>': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+[INFO] [1626832899.295333, 4795.702000]: Concurrent state '/challenge/mission/small_hauler_2_monitor' returned outcome 'preempted' on termination.
+[ERROR] [1626832899.295810, 4795.702000]: InvalidStateError: Could not execute child state 'inner_state_machine': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 359, in execute
+    container_outcome = self._update_once()
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 252, in _update_once
+    raise smach.InvalidUserCodeError("Could not execute state '%s' of type '%s': " %
+smach.exceptions.InvalidUserCodeError: Could not execute state 'transition' of type '<state_machine.states.submission.robot_transition_states.HaulerSubmissionTransitionState object at 0x7fe88f7c1d30>': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+
+Exception in thread concurrent_split:inner_state_machine:
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 359, in execute
+    container_outcome = self._update_once()
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 252, in _update_once
+    raise smach.InvalidUserCodeError("Could not execute state '%s' of type '%s': " %
+smach.exceptions.InvalidUserCodeError: Could not execute state 'transition' of type '<state_machine.states.submission.robot_transition_states.HaulerSubmissionTransitionState object at 0x7fe88f7c1d30>': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 344, in _state_runner
+    raise smach.InvalidStateError(("Could not execute child state '%s': " % label)+traceback.format_exc())
+smach.exceptions.InvalidStateError: Could not execute child state 'inner_state_machine': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 359, in execute
+    container_outcome = self._update_once()
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 252, in _update_once
+    raise smach.InvalidUserCodeError("Could not execute state '%s' of type '%s': " %
+smach.exceptions.InvalidUserCodeError: Could not execute state 'transition' of type '<state_machine.states.submission.robot_transition_states.HaulerSubmissionTransitionState object at 0x7fe88f7c1d30>': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/state_machine.py", line 242, in _update_once
+    outcome = self._current_state.execute(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/base/_base_transition_state.py", line 108, in execute
+    next_state = self.next_state()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/state_machine/states/submission/robot_transition_states.py", line 168, in next_state
+    raise NotImplementedError
+NotImplementedError
+
+
+[ERROR] [1626832899.393637, 4795.725000]: InvalidStateError: A concurrent state raised an exception during execution.
+[ERROR] [1626832899.403478, 4795.725000]: InvalidStateError: Could not execute child state 'small_hauler_2': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 256, in execute
+    raise smach.InvalidStateError("A concurrent state raised an exception during execution.")
+smach.exceptions.InvalidStateError: A concurrent state raised an exception during execution.
+
+Exception in thread concurrent_split:small_hauler_2:
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 256, in execute
+[INFO] [1626832899.407753, 4795.726000]: Concurrent state '/challenge/mission_monitor' returned outcome 'preempted' on termination.
+    raise smach.InvalidStateError("A concurrent state raised an exception during execution.")
+smach.exceptions.InvalidStateError: A concurrent state raised an exception during execution.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+[INFO] [1626832899.416148, 4795.728000]: Concurrent state '/challenge/mission/small_excavator_1_monitor' returned outcome 'preempted' on termination.
+[WARN] [1626832899.417397, 4795.729000]: Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 344, in _state_runner
+    raise smach.InvalidStateError(("Could not execute child state '%s': " % label)+traceback.format_exc())
+smach.exceptions.InvalidStateError: Could not execute child state 'small_hauler_2': Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 335, in _state_runner
+    self._child_outcomes[label] = self._states[label].execute(smach.Remapper(
+  File "/opt/ros/noetic/lib/python3/dist-packages/smach/concurrence.py", line 256, in execute
+    raise smach.InvalidStateError("A concurrent state raised an exception during execution.")
+smach.exceptions.InvalidStateError: A concurrent state raised an exception during execution.
+
+[INFO] [1626832899.419691, 4795.729000]: Concurrent state '/challenge/mission/small_hauler_1_monitor' returned outcome 'preempted' on termination.
+[INFO] [1626832899.422994, 4795.730000]: Concurrent state '/challenge/mission/small_scout_2_monitor' returned outcome 'preempted' on termination.
+[WARN] [1626832899.425575, 4795.731000]: Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+[INFO] [1626832899.426547, 4795.731000]: Concurrent state '/challenge/mission/small_excavator_2_monitor' returned outcome 'preempted' on termination.
+[INFO] [1626832899.429365, 4795.732000]: Concurrent state '/challenge/mission/small_scout_1_monitor' returned outcome 'preempted' on termination.
+2021-07-21 02:01:39.516 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '1:19:55.755000'
+message: 'Exiting state: /challenge/mission/small_scout_2/wait_for_dig_to_begin'
+rover_name: null
+service_name: state_machine.utils.ledger

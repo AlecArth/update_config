@@ -86,19 +86,24 @@ def runPreCommands(cwd, pull, checkoutBranch=""):
     os.system("git -C "+cwd+" stash")
     time.sleep(1)
     if len(checkoutBranch) > 0:
-        command = "git -C "+cwd+" checkout "+checkoutBranch
-        os.system(command)
+        if checkoutBranch is not "master":
+            command = "git -C "+cwd+" checkout master"
+            os.system(command)
+            time.sleep(1)
+            os.system("git -C "+cwd+" pull")
+            time.sleep(1)
+            command = "git -C "+cwd+" checkout "+checkoutBranch
+            os.system(command)
+        else:
+            command = "git -C "+cwd+" checkout "+checkoutBranch
+            os.system(command)
     time.sleep(1)
     if pull:
         os.system("git -C "+cwd+" pull")
         time.sleep(1)
 
-def runCommands(cwd, init, build, extra_cpus, sim_no_gui, first_run_on_pre_init_and_build):
+def runCommands(cwd, init, build, extra_cpus, sim_no_gui):
     print("runCommands")
-    if first_run_on_pre_init_and_build:
-        subprocess.Popen(["sudo", "make", "run-sim"], cwd=cwd)
-        time.sleep(180)
-        subprocess.run(["make", "kill-all-containers"], cwd=cwd)
     if init:
         subprocess.run(["make", "init"], cwd=cwd)
         time.sleep(1)
@@ -137,6 +142,30 @@ def runSimOnly(cwd):
     time.sleep(65)
     subprocess.run(["make", "run-solution"], cwd=cwd)
 
+def updateImageTag(cwd):
+    pass 
+
+def getCurrentSeed(seed_file_path):
+    print("getCurrentSeed")
+    if os.path.exists(seed_file_path):
+        with open(seed_file_path) as file:
+            first_line = file.readline()
+        return first_line
+    else:
+        return 1000
+
+def saveCurrentSeed(seed_file_path, seedNum):
+    print("saveCurrentSeed")
+    if os.path.exists(seed_file_path):
+
+        file = open(seed_file_path, 'w')
+        file.write(str(seedNum))
+        file.close()
+    else:
+        file = open(seed_file_path, 'x')
+        file.write("1000")
+        file.close()
+
 def main():
     cwd = "../competition-round/"
 
@@ -152,7 +181,7 @@ def main():
     parser.add_argument('--pull', type=bool, default=False)
     parser.add_argument('--extra_cpus', type=bool, default=False)
     parser.add_argument('--sim_no_gui', type=bool, default=False)
-    parser.add_argument('--first_run_on_pre_init_and_build', type=bool, default=False)
+    parser.add_argument('--image_tag_nasa', type=bool, default=False)
     args = parser.parse_args()
     print(args)
 
@@ -167,7 +196,10 @@ def main():
     pull = args.pull
     extra_cpus = args.extra_cpus
     sim_no_gui = args.sim_no_gui
-    first_run_on_pre_init_and_build = args.first_run_on_pre_init_and_build
+    image_tag_nasa = args.image_tag_nasa
+
+    if(image_tag_nasa):
+        updateImageTag(cwd)
     
     if makeSimOnly:
         runSimOnly(cwd)
@@ -181,7 +213,7 @@ def main():
         else:
             sixRovers(file_path)
 
-        runCommands(cwd, init, build, extra_cpus, sim_no_gui, first_run_on_pre_init_and_build)
+        runCommands(cwd, init, build, extra_cpus, sim_no_gui)
 
 
 if __name__ == "__main__":

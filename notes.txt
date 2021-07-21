@@ -18,6 +18,7 @@ python3 update_config.py --branch master --seed
 OR
 python3 update_config.py --branch master --pull True --seed
 
+
 - Run these inside the "make run-solution" terminals.
 
 roslaunch srcp2_solution submission.launch
@@ -34,6 +35,9 @@ rostopic echo /srcp2/score
 
 
 ----------other------------
+
+
+python3 update_config.py --branch 1cf01764d0992371dd9bcc6d73e125164ad6ef37 --pull True --seed
 
 - With video services
 python3 run.py --all --sm submission/6_rovers/challenge --vs

@@ -1,0 +1,67 @@
+2021-07-20 22:53:47.254 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '1:01:29.114000'
+message: 'Action called: follow_rover, message: x: 0.0
+
+  y: 0.0
+
+  distance: 0.0
+
+  best_effort: False'
+rover_name: small_hauler_2
+service_name: behaviour.actions.base_action
+
+[ INFO] [1626821628.563790830, 3689.227000000]: Rover braking for small_hauler_2 has been turned to 1000.000000
+
+[ INFO] [1626821628.569792761, 3689.229000000]: Rover braking for small_hauler_2 has been turned to 1.000000
+
+2021-07-20 22:53:50.319 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '1:01:29.434000'
+message: moving to in front of hopper
+rover_name: small_hauler_1
+service_name: behaviour.actions.base_action
+
+[ERROR] [1626821641.136338, 3690.912000]: Exception in your execute callback: 'LineString' object has no attribute 'exterior'
+Traceback (most recent call last):
+  File "/opt/ros/noetic/lib/python3/dist-packages/actionlib/simple_action_server.py", line 289, in executeLoop
+    self.execute_callback(goal)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/base_action.py", line 53, in behaviour_callback
+    self.behaviour(goal)
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/actions/shared/follow_rover_action.py", line 110, in behaviour
+    _ = self._waypoint_driver.goto_waypoint(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/driver/waypoint_driver/waypoint_driver.py", line 77, in goto_waypoint
+    self._get_latest_message_from_path_planner()
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/driver/waypoint_driver/waypoint_driver.py", line 111, in _get_latest_message_from_path_planner
+    self._path_planner_response = self._path_planner.get_next_waypoint(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/path_planning/smart_path_planner.py", line 164, in get_next_waypoint
+    self._obstacle_space._publish_obstacles_for_visualisation(
+  File "/home/srcp2/uofa_ws/src/src/srcp2_solution/behaviour/path_planning/obstacle_space.py", line 224, in _publish_obstacles_for_visualisation
+    for point in asarray(obstacle.exterior.coords):
+AttributeError: 'LineString' object has no attribute 'exterior'
+
+[ INFO] [1626821764.506159434, 3708.011000000]: Rover braking for small_scout_2 has been turned to 1000.000000
+
+[ INFO] [1626821765.777510898, 3708.201000000]: Rover braking for small_scout_2 has been turned to 1.000000
+
+[ INFO] [1626821873.089214584, 3723.469000000]: Rover braking for small_scout_2 has been turned to 1000.000000
+
+[ INFO] [1626821874.244130377, 3723.664000000]: Rover braking for small_scout_2 has been turned to 1.000000
+
+2021-07-20 22:57:57.703 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '1:02:04.234000'
+message: rotating towards hopper
+rover_name: small_hauler_1
+service_name: behaviour.actions.base_action
+
+2021-07-20 22:58:43.546 | INFO     | services.logger.logger:_log:93 - 
+SIM_TIME: '1:02:11.636000'
+message: moving towards hopper
+rover_name: small_hauler_1
+service_name: behaviour.actions.base_action
+
+[ INFO] [1626821947.020028741, 3735.225000000]: Rover braking for small_excavator_2 has been turned to 1000.000000
+
+[ INFO] [1626822089.724185445, 3753.401000000]: Rover braking for small_excavator_2 has been turned to 1.000000
+
+[ INFO] [1626822140.072317007, 3759.763000000]: Rover braking for small_scout_2 has been turned to 1000.000000
+
+[ INFO] [1626822141.893992568, 3760.001000000]: Rover braking for small_scout_2 has been turned to 1.000000

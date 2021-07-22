@@ -16,16 +16,29 @@ e.g: python3 update_config.py --branch master --pull True --init True --build Tr
 ----------scripts-----------
 python3 update_config.py --branch master --seed
 OR
-python3 update_config.py --branch master --pull True --seed
 
 
-- Run these inside the "make run-solution" terminals.
 
+
+------------------------------------------------------------------------------------------------------------------
+python3 update_config.py --branch master --build True --pull True --seed
+
+roslaunch srcp2_solution submission_with_logger.launch
 roslaunch srcp2_solution submission.launch
+
 rostopic echo /srcp2/score
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
     - Without video services    
-    roslaunch srcp2_solution submission_with_logger.launch
+    
 
     - With map viewer
     python3 run.py --all --sm submission/6_rovers/challenge --services map_viewer

@@ -37,7 +37,7 @@ rostopic echo /srcp2/score
 ----------other------------
 
 
-python3 update_config.py --branch bb718ecbf3e6fd58fa4eeecce25e745900e2ad73 --pull True --numberOfRovers 3 --seed
+python3 update_config.py --branch 5bd5f260fc3b18dbc1cd8c5dd6c8fc5c0588326d --pull True --numberOfRovers 3 --seed
 python3 run.py --all --state-machine submission/3_rovers/challenge
 rostopic echo /srcp2/score
 

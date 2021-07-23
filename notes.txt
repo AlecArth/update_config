@@ -1,70 +1,41 @@
 ----------args-----------
 
-select the required seed number.
-    -1 or nothing will increment
-    the previous seed by 1:       --seed <seed_number>
+use seed:                         --seed <seed_number>
 checkout specific branch:         --branch <branch_to_use>
-run "make init":                  --init
-run "make build-solution":        --build
-pull the branch:                  --pull
-make run-solution-extra-cpus:     --extra_cpus
-make run-sim-no-gui               --no_sim_gui
-run the sim with 3 min delay      --first_run_on_pre_init_and_build
+run "make init":                  --init True
+run "make build-solution":        --build True
+pull the branch:                  --pull True
 
 e.g: python3 update_config.py --branch master --pull True --init True --build True --seed 30923
 
+
+
 ----------scripts-----------
-python3 update_config.py --branch master --seed
-OR
+
+python3 update_config.py --branch master --pull True --seed
+python3 update_config.py --branch master --build True --init True --pull True --seed
 
 
-
-
-------------------------------------------------------------------------------------------------------------------
-python3 update_config.py --branch master --build True --pull True --seed
-
+--- With logger ---
 roslaunch srcp2_solution submission_with_logger.launch
-roslaunch srcp2_solution submission.launch
-
 rostopic echo /srcp2/score
-------------------------------------------------------------------------------------------------------------------
+
+--- Without logger ---
+roslaunch srcp2_solution submission.launch
+rostopic echo /srcp2/score
 
 
 
+----------to fix driver mismatch error------------
 
+sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}'); sudo apt autoremove -y; sudo apt install nvidia-driver-450 -y; sudo reboot
 
-
-
-
-
-    - Without video services    
-    
-
-    - With map viewer
-    python3 run.py --all --sm submission/6_rovers/challenge --services map_viewer
-
-    - Score
-    rostopic echo /srcp2/score
 
 
 ----------other------------
-
 
 python3 update_config.py --branch 5bd5f260fc3b18dbc1cd8c5dd6c8fc5c0588326d --pull True --numberOfRovers 3 --seed
 python3 run.py --all --state-machine submission/3_rovers/challenge
 rostopic echo /srcp2/score
 
 
-
-- With video services
-python3 run.py --all --sm submission/6_rovers/challenge --vs
-
-python3 update_config.py --branch master --seed
-roslaunch srcp2_solution submission_with_logger.launch |& tee container_output/terminal_output_seed_1000
-rostopic echo /srcp2/score |& tee container_output/score_seed_1000
-
-python3 run.py --all --sm submission/6_rovers/challenge --vs |& tee container_output/terminal_output_seed_1000
-
-
-python3 update_config.py --branch cb6e93f3 --pull True --first_run_on_pre_init_and_build True --extra_cpus True --seed
-python3 update_config.py --branch master --pull True --first_run_on_pre_init_and_build True --extra_cpus True --seed

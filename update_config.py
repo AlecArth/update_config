@@ -77,7 +77,7 @@ def updateRoverNumber(file_path, pattern, subst):
     remove(file_path)
     move(abs_path, file_path)
 
-def runPreCommands(cwd, pull, checkoutBranch=""):
+def runPreCommands(cwd, branch, pull):
     print("runPreCommands")
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
@@ -85,36 +85,37 @@ def runPreCommands(cwd, pull, checkoutBranch=""):
     time.sleep(1)
     os.system("git -C "+cwd+" stash")
     time.sleep(1)
-    if len(checkoutBranch) > 0:
-        if checkoutBranch is not "master":
-            command = "git -C "+cwd+" checkout master"
-            os.system(command)
-            time.sleep(1)
-            os.system("git -C "+cwd+" pull")
-            time.sleep(1)
-            command = "git -C "+cwd+" checkout "+checkoutBranch
-            os.system(command)
-        else:
-            command = "git -C "+cwd+" checkout "+checkoutBranch
-            os.system(command)
+    command = "git -C "+cwd+" checkout master"
+    os.system(command)
+    time.sleep(1)
+    os.system("git -C "+cwd+" pull")
+    if branch is not "master":
+        time.sleep(1)
+        command = "git -C "+cwd+" checkout "+branch
+        os.system(command)
     time.sleep(1)
     if pull:
         os.system("git -C "+cwd+" pull")
         time.sleep(1)
 
-def runCommands(cwd, init, build, extra_cpus, sim_no_gui):
+def runCommands(cwd, clear_docker_cache, init, build):
     print("runCommands")
+    if clear_docker_cache:
+        os.system("docker images -a -q | xargs docker rmi -f")
+        time.sleep(1)
+        subprocess.Popen(["make", "run-sim"], cwd=cwd)
+        time.sleep(600)
+        os.system("cd "+cwd+" && make kill-all-containers")
+        time.sleep(1)
+        init = True
+        build = True
     if init:
         subprocess.run(["make", "init"], cwd=cwd)
         time.sleep(1)
     if build:
         subprocess.run(["make", "build-solution"], cwd=cwd)
         time.sleep(1)
-
-    if sim_no_gui:
-        subprocess.Popen(["make", "run-sim-no-gui"], cwd=cwd)
-    else:
-        subprocess.run(["make", "run-sim"], cwd=cwd)
+    subprocess.run(["make", "run-sim"], cwd=cwd)
     # time.sleep(65)
 
     # if extra_cpus:
@@ -133,58 +134,40 @@ def runCommands(cwd, init, build, extra_cpus, sim_no_gui):
     # subprocess.Popen(["gnome-terminal", "--tab-with-profile=a", "--", "make", "run-solution"], cwd="competition-round/")
     # os.system("cd competition-round/ && gnome-terminal --tab-with-profile=a -- make run-solution")
 
-def runSimOnly(cwd):
-    subprocess.run(["make", "kill-all-containers"], cwd=cwd)
-    time.sleep(1)
-    subprocess.run(["clear"], cwd=cwd)
-    time.sleep(1)
-    subprocess.Popen(["make", "run-sim"], cwd=cwd)
-    time.sleep(65)
-    subprocess.run(["make", "run-solution"], cwd=cwd)
 
 def main():
-    cwd = "../competition-round/"
-
-    parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('--branch', type=str, default="")
+    parser = argparse.ArgumentParser(description='Process arguments.')
+    parser.add_argument('--cwd', type=str, default="../competition-round/")
+    parser.add_argument('--configfilepath', type=str, default="../competition-round/config.yml")
+    parser.add_argument('--seedfilepath', type=str, default="seedNumber.txt")
+    parser.add_argument('--branch', type=str, default="master")
+    parser.add_argument('--pull', type=bool, default=False)
+    parser.add_argument('--numofrovers', type=int, default=6)
     parser.add_argument('--seed', type=int, default=-1)
-    parser.add_argument('--file_path', type=str, default=cwd+"config.yml")
-    parser.add_argument('--seed_file_path', type=str, default="seedNumber.txt")
-    parser.add_argument('--numberOfRovers', type=int, default=6)
-    parser.add_argument('--makeSimOnly', type=bool, default=False)
+    parser.add_argument('--cleardockercache', type=bool, default=False)
     parser.add_argument('--init', type=bool, default=False)
     parser.add_argument('--build', type=bool, default=False)
-    parser.add_argument('--pull', type=bool, default=False)
-    parser.add_argument('--extra_cpus', type=bool, default=False)
-    parser.add_argument('--sim_no_gui', type=bool, default=False)
     args = parser.parse_args()
     print(args)
 
-    checkoutBranch=args.branch
-    newSeed=args.seed
-    file_path = args.file_path
-    seed_file_path = args.seed_file_path
-    numberOfRovers = args.numberOfRovers
-    makeSimOnly = args.makeSimOnly
+    cwd = args.cwd
+    config_file_path = args.configfilepath
+    seed_file_path = args.seedfilepath
+    branch=args.branch
+    pull = args.pull
+    num_of_rovers = args.numofrovers
+    new_seed=args.seed
+    clear_docker_cache = args.cleardockercache
     init = args.init
     build = args.build
-    pull = args.pull
-    extra_cpus = args.extra_cpus
-    sim_no_gui = args.sim_no_gui
 
-    if makeSimOnly:
-        runSimOnly(cwd)
+    runPreCommands(cwd, branch, pull)
+    updateSeedNum(config_file_path, seed_file_path, new_seed)
+    if num_of_rovers == 3:
+        threeRovers(config_file_path)
     else:
-        runPreCommands(cwd, pull, checkoutBranch)
-
-        updateSeedNum(file_path, seed_file_path, newSeed)
-
-        if numberOfRovers == 3:
-            threeRovers(file_path)
-        else:
-            sixRovers(file_path)
-
-        runCommands(cwd, init, build, extra_cpus, sim_no_gui)
+        sixRovers(config_file_path)
+    runCommands(cwd, clear_docker_cache, init, build)
 
 
 if __name__ == "__main__":

@@ -25,7 +25,9 @@ rostopic echo /srcp2/score
 
 ----------scripts: log plotter-----------
 
-plot.py
+python3 plot.py container_output/logs/ --output container_output/logs/ --show
+python3 plot.py container_output/logs/ --output container_output/logs/ --individual ?
+--hs park_at_scout --st 20 --et 40
 
 
 ----------to fix driver mismatch error (will restart)------------

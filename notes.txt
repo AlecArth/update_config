@@ -1,19 +1,21 @@
 ----------args-----------
 
-use seed:                         --seed <seed_number>
-checkout specific branch:         --branch <branch_to_use>
-run "make init":                  --init True
-run "make build-solution":        --build True
-pull the branch:                  --pull True
+use seed:                           --seed <seed_number>
+checkout specific branch:           --branch <branch_to_use>
+run "make init":                    --init True
+run "make build-solution":          --build True
+pull the branch:                    --pull True
+clear the docker cache and rebuild: --cleardockercache
 
 e.g: python3 update_config.py --branch master --pull True --init True --build True --seed 30923
 
 
 
-----------scripts-----------
+----------scripts: run sim and solution-----------
 
 python3 update_config.py --branch master --pull True --seed
 python3 update_config.py --branch master --build True --init True --pull True --seed
+python3 update_config.py --branch master --cleardockercache --build True --init True --pull True --seed
 
 
 --- With logger ---
@@ -25,6 +27,10 @@ roslaunch srcp2_solution submission.launch
 rostopic echo /srcp2/score
 
 
+----------scripts: log plotter-----------
+
+plot.py
+
 
 ----------to fix driver mismatch error------------
 
@@ -33,9 +39,4 @@ sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}'); sudo apt autore
 
 
 ----------other------------
-
-python3 update_config.py --branch 5bd5f260fc3b18dbc1cd8c5dd6c8fc5c0588326d --pull True --numberOfRovers 3 --seed
-python3 run.py --all --state-machine submission/3_rovers/challenge
-rostopic echo /srcp2/score
-
 

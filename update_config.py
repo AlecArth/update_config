@@ -77,7 +77,7 @@ def updateRoverNumber(file_path, pattern, subst):
     remove(file_path)
     move(abs_path, file_path)
 
-def runPreCommands(cwd, branch, pull):
+def runGitCommands(cwd, branch, pull):
     print("runPreCommands")
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
@@ -116,24 +116,6 @@ def runCommands(cwd, clear_docker_cache, init, build):
         subprocess.run(["make", "build-solution"], cwd=cwd)
         time.sleep(1)
     subprocess.run(["make", "run-sim"], cwd=cwd)
-    # time.sleep(65)
-
-    # if extra_cpus:
-    #     subprocess.run(["make", "run-solution-extra-cpus"], cwd=cwd)
-    # else:
-    #     subprocess.run(["make", "run-solution"], cwd=cwd)
-    # time.sleep(60)
-    # subprocess.run(["make", "kill-all-containers"], cwd="competition-round/")
-    # subprocess.run(["clear"], cwd="competition-round/")
-    # time.sleep(1)
-    # subprocess.Popen(["make", "run-sim"], cwd="competition-round/")
-    # time.sleep(3)
-    # subprocess.Popen(["gnome-terminal", "--tab-with-profile=a", "--", "make", "run-solution"], cwd="competition-round/")
-    # os.system("cd competition-round/ && gnome-terminal --tab-with-profile=a -- make run-solution")
-    # time.sleep(3)
-    # subprocess.Popen(["gnome-terminal", "--tab-with-profile=a", "--", "make", "run-solution"], cwd="competition-round/")
-    # os.system("cd competition-round/ && gnome-terminal --tab-with-profile=a -- make run-solution")
-
 
 def main():
     parser = argparse.ArgumentParser(description='Process arguments.')
@@ -161,7 +143,7 @@ def main():
     init = args.init
     build = args.build
 
-    runPreCommands(cwd, branch, pull)
+    runGitCommands(cwd, branch, pull)
     updateSeedNum(config_file_path, seed_file_path, new_seed)
     if num_of_rovers == 3:
         threeRovers(config_file_path)

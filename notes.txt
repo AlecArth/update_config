@@ -13,8 +13,6 @@ e.g: python3 update_config.py --branch master --pull True --init True --build Tr
 ----------scripts: run sim and solution-----------
 
 python3 update_config.py --branch master --pull True --seed
-python3 update_config.py --branch master --build True --init True --pull True --seed
-python3 update_config.py --branch master --cleardockercache True --build True --init True --pull True --seed
 
 --- With logger ---
 roslaunch srcp2_solution submission_with_logger.launch
@@ -36,6 +34,9 @@ sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}'); sudo apt autore
 
 
 ----------other------------
+
+python3 update_config.py --branch master --build True --init True --pull True --seed
+python3 update_config.py --branch master --cleardockercache True --build True --init True --pull True --seed
 
 sudo snap install sublime-text --classic
 sudo apt install kazam dragonplayer -y

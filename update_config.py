@@ -78,18 +78,18 @@ def updateRoverNumber(file_path, pattern, subst):
     move(abs_path, file_path)
 
 def runGitCommands(cwd, branch, pull):
-    print("runPreCommands")
+    print("runGitCommands")
     subprocess.run(["clear"], cwd=cwd)
     time.sleep(1)
     os.system("cd "+cwd+" && make kill-all-containers")
     time.sleep(1)
     os.system("git -C "+cwd+" stash")
     time.sleep(1)
-    command = "git -C "+cwd+" checkout master"
-    os.system(command)
-    time.sleep(1)
-    os.system("git -C "+cwd+" pull")
     if branch is not "master":
+        command = "git -C "+cwd+" checkout master"
+        os.system(command)
+        time.sleep(1)
+        os.system("git -C "+cwd+" pull")
         time.sleep(1)
         command = "git -C "+cwd+" checkout "+branch
         os.system(command)

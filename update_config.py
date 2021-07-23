@@ -103,19 +103,19 @@ def runCommands(cwd, clear_docker_cache, init, build):
     if clear_docker_cache:
         os.system("docker images -a -q | xargs docker rmi -f")
         time.sleep(1)
-        subprocess.Popen(["make", "run-sim"], cwd=cwd)
-        time.sleep(300)
+        subprocess.Popen(["sudo ", "make", "run-sim"], cwd=cwd)
+        time.sleep(600)
         os.system("cd "+cwd+" && make kill-all-containers")
         time.sleep(1)
         init = True
         build = True
     if init:
-        subprocess.run(["make", "init"], cwd=cwd)
+        subprocess.run(["sudo", "make", "init"], cwd=cwd)
         time.sleep(1)
     if build:
-        subprocess.run(["make", "build-solution"], cwd=cwd)
+        subprocess.run(["sudo", "make", "build-solution"], cwd=cwd)
         time.sleep(1)
-    subprocess.run(["make", "run-sim"], cwd=cwd)
+    subprocess.run(["sudo ", "make", "run-sim"], cwd=cwd)
 
 def main():
     parser = argparse.ArgumentParser(description='Process arguments.')

@@ -10,13 +10,11 @@ clear the docker cache and rebuild: --cleardockercache
 e.g: python3 update_config.py --branch master --pull True --init True --build True --seed 30923
 
 
-
 ----------scripts: run sim and solution-----------
 
 python3 update_config.py --branch master --pull True --seed
 python3 update_config.py --branch master --build True --init True --pull True --seed
 python3 update_config.py --branch master --cleardockercache --build True --init True --pull True --seed
-
 
 --- With logger ---
 roslaunch srcp2_solution submission_with_logger.launch
@@ -37,6 +35,4 @@ plot.py
 sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}'); sudo apt autoremove -y; sudo apt install nvidia-driver-450 -y; sudo reboot
 
 
-
 ----------other------------
-

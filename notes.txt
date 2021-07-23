@@ -30,7 +30,7 @@ rostopic echo /srcp2/score
 plot.py
 
 
-----------to fix driver mismatch error (this will restart the instance)------------
+----------to fix driver mismatch error (will restart)------------
 
 sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}'); sudo apt autoremove -y; sudo apt install nvidia-driver-450 -y; sudo reboot
 

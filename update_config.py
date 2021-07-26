@@ -83,7 +83,9 @@ def runGitCommands(cwd, branch, pull):
     time.sleep(1)
     os.system("cd "+cwd+" && make stop-all-containers")
     time.sleep(1)
-    os.system("git -C "+cwd+" stash")
+    # os.system("git -C "+cwd+" stash")
+    # time.sleep(1)
+    os.system("git -C "+cwd+" rm config.yml")
     time.sleep(1)
     if branch is not "master":
         command = "git -C "+cwd+" checkout master"

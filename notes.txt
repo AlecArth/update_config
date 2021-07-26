@@ -27,7 +27,7 @@ rostopic echo /srcp2/score
 
 python3 plot.py container_output/logs/ --output container_output/logs/ --show
 
-python3 plot.py container_output/logs/ --output container_output/logs/ --individual ?
+python3 plot.py container_output/logs/ --output container_output/logs/ --individual
 
 --hs park_at_scout --st 20 --et 40
 

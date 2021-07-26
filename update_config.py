@@ -114,9 +114,9 @@ def runCommands(cwd, clear_docker_cache, init, build):
     if init:
         subprocess.run(["make", "init"], cwd=cwd)
         time.sleep(1)
-    if build:
-        subprocess.run(["make", "build-solution"], cwd=cwd)
-        time.sleep(1)
+    # if build:
+    subprocess.run(["make", "build-solution"], cwd=cwd)
+    time.sleep(1)
     subprocess.run(["make", "run-sim"], cwd=cwd)
 
 def main():

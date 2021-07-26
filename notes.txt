@@ -26,9 +26,12 @@ rostopic echo /srcp2/score
 ----------scripts: log plotter-----------
 
 python3 plot.py container_output/logs/ --output container_output/logs/ --show
+
 python3 plot.py container_output/logs/ --output container_output/logs/ --individual ?
+
 --hs park_at_scout --st 20 --et 40
 
+e.g. python3 plot.py container_output/logs/22-07-2021_20:40.58 --output container_output/logs/22-07-2021_20:40.58 --show
 
 ----------to fix driver mismatch error (will restart)------------
 
@@ -39,6 +42,8 @@ sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}'); sudo apt autore
 
 python3 update_config.py --branch master --build True --init True --pull True --seed
 python3 update_config.py --branch master --cleardockercache True --build True --init True --pull True --seed
+
+python3 run.py --all --state-machine submission/6_rovers/challenge
 
 sudo snap install sublime-text --classic
 sudo apt install kazam dragonplayer -y

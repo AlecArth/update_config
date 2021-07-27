@@ -116,7 +116,8 @@ def runCommands(cwd, clear_docker_cache, init):
         time.sleep(1)
     subprocess.run(["make", "build-solution"], cwd=cwd)
     time.sleep(1)
-    subprocess.run(["make", "run-sim"], cwd=cwd)
+    if not clear_docker_cache:
+        subprocess.run(["make", "run-sim"], cwd=cwd)
 
 def main():
     parser = argparse.ArgumentParser(description='Process arguments.')

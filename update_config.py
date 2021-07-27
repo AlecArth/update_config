@@ -85,9 +85,8 @@ def runGitCommands(cwd, branch, pull):
     time.sleep(1)
     os.system("git -C "+cwd+" stash")
     time.sleep(1)
-    # os.system("git -C "+cwd+" rm config.yml")
-    # time.sleep(1)
-    if branch is not "master":
+    if branch != "master":
+        print(branch)
         command = "git -C "+cwd+" checkout master"
         os.system(command)
         time.sleep(1)
@@ -97,10 +96,11 @@ def runGitCommands(cwd, branch, pull):
         os.system(command)
     time.sleep(1)
     if pull:
+        print("pull happened")
         os.system("git -C "+cwd+" pull")
         time.sleep(1)
 
-def runCommands(cwd, clear_docker_cache, init, build):
+def runCommands(cwd, clear_docker_cache, init):
     print("runCommands")
     if clear_docker_cache:
         os.system("docker images -a -q | xargs docker rmi -f")
@@ -110,11 +110,10 @@ def runCommands(cwd, clear_docker_cache, init, build):
         os.system("cd "+cwd+" && make kill-all-containers")
         time.sleep(1)
         init = True
-        build = True
     if init:
+        print("init ran")
         subprocess.run(["make", "init"], cwd=cwd)
         time.sleep(1)
-    # if build:
     subprocess.run(["make", "build-solution"], cwd=cwd)
     time.sleep(1)
     subprocess.run(["make", "run-sim"], cwd=cwd)
@@ -125,12 +124,11 @@ def main():
     parser.add_argument('--configfilepath', type=str, default="../competition-round/config.yml")
     parser.add_argument('--seedfilepath', type=str, default="seedNumber.txt")
     parser.add_argument('--branch', type=str, default="master")
-    parser.add_argument('--pull', type=bool, default=False)
+    parser.add_argument('--pull', action="store_true")
     parser.add_argument('--numofrovers', type=int, default=6)
     parser.add_argument('--seed', type=int, default=-1)
-    parser.add_argument('--cleardockercache', type=bool, default=False)
-    parser.add_argument('--init', type=bool, default=False)
-    parser.add_argument('--build', type=bool, default=False)
+    parser.add_argument('--cleardockercache', action="store_true")
+    parser.add_argument('--init', action="store_true")
     args = parser.parse_args()
     print(args)
 
@@ -143,7 +141,6 @@ def main():
     new_seed=args.seed
     clear_docker_cache = args.cleardockercache
     init = args.init
-    build = args.build
 
     runGitCommands(cwd, branch, pull)
     updateSeedNum(config_file_path, seed_file_path, new_seed)
@@ -151,7 +148,7 @@ def main():
         threeRovers(config_file_path)
     else:
         sixRovers(config_file_path)
-    runCommands(cwd, clear_docker_cache, init, build)
+    runCommands(cwd, clear_docker_cache, init)
 
 
 if __name__ == "__main__":

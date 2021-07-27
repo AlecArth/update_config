@@ -3,16 +3,15 @@
 use seed:                           --seed <seed_number>
 checkout specific branch:           --branch <branch_to_use>
 run "make init":                    --init True
-run "make build-solution":          --build True
 pull the branch:                    --pull True
 clear the docker cache and rebuild: --cleardockercache
 
-e.g: python3 update_config.py --branch master --pull True --init True --build True --seed 30923
+e.g: python3 update_config.py --branch master --pull --init --seed 30923
 
 
 ----------scripts: run sim and solution-----------
 
-python3 update_config.py --branch master --pull True --seed
+python3 update_config.py --branch master --pull --seed
 
 --- With logger ---
 roslaunch srcp2_solution submission_with_logger.launch
@@ -25,13 +24,11 @@ rostopic echo /srcp2/score
 
 ----------scripts: log plotter-----------
 
-python3 plot.py container_output/logs/ --output container_output/logs/ --show
-
-python3 plot.py container_output/logs/ --output container_output/logs/ --individual
-
---hs park_at_scout --st 20 --et 40
+python3 plot.py container_output/logs/ --output container_output/output_logs/ --show
+python3 plot.py container_output/logs/ --output container_output/output_logs/ --individual
 
 e.g. python3 plot.py container_output/logs/22-07-2021_20:40.58 --output container_output/logs/22-07-2021_20:40.58 --show
+
 
 ----------to fix driver mismatch error (will restart)------------
 
@@ -40,8 +37,8 @@ sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}'); sudo apt autore
 
 ----------other------------
 
-python3 update_config.py --branch master --build True --init True --pull True --seed
-python3 update_config.py --branch master --cleardockercache True --build True --init True --pull True --seed
+python3 update_config.py --branch master --init --pull --seed
+python3 update_config.py --branch master --cleardockercache --pull --seed
 
 python3 run.py --all --state-machine submission/6_rovers/challenge
 

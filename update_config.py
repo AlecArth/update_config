@@ -106,7 +106,7 @@ def runCommands(cwd, clear_docker_cache, init):
         os.system("docker images -a -q | xargs docker rmi -f")
         time.sleep(1)
         subprocess.Popen(["make", "run-sim"], cwd=cwd)
-        time.sleep(200)
+        time.sleep(60)
         os.system("cd "+cwd+" && make kill-all-containers")
         time.sleep(1)
         init = True

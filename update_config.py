@@ -64,7 +64,7 @@ def threeRovers(file_path):
 def sixRovers(file_path):
     updateRoverNumber(file_path, "  scouts: 1", "  scouts: 2")
     updateRoverNumber(file_path, "  excavators: 1", "  excavators: 2")
-    updateRoverNumber(file_path, "  haulers: 2", "  haulers: 2")
+    updateRoverNumber(file_path, "  haulers: 1", "  haulers: 2")
 
 def updateRoverNumber(file_path, pattern, subst):
     print("updateRoverNumber")

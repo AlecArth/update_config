@@ -8,6 +8,8 @@ clear the docker cache and rebuild: --cleardockercache
 
 e.g: python3 update_config.py --branch master --pull --init --seed 30923
 
+python3 update_config.py --branch paper-results --pull --init --seed
+python3 update_config.py --branch efa1cc1206216ce1f5b5104f47c3f57db5e6f052 --pull --init --seed
 
 ----------scripts: run sim and solution-----------
 

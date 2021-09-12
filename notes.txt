@@ -1,6 +1,6 @@
 python3 plot.py container_output/logs/11-09-2021_07:40.27/ -o paper_results/11-09-2021_07:40.27/ -i --hs reset_ekf
 
-python3 plot.py container_output/logs/ -o paper_results/ -i --hs reset_ekf
+git pull; python3 plot.py container_output/logs/ -o paper_results/ -i --hs reset_ekf
 
 Then the CSV that we need should be in paper_results/11-09-2021_07:40.27/csv/statistics.csv
 
